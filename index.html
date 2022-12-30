@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures Handson</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>JS Handson</h1>
+    <h2>Closures</h2>
+    <hr>
+
+
+    <p class="ques">
+        <span class="red">Qn 1. 
+        <pre id="quePre">function counter(){
+        var counter = 0;
+    
+        function IncreaseCounter() {
+            return counter += 1;
+        };
+    
+        return IncreaseCounter;
+    }
+    
+    var counter = counter();
+    alert(counter());
+    alert(counter());
+    alert(counter());
+    alert(counter());
+</pre></span>
+<p class="ans">
+    <span class="green">Ans - </span>
+<pre>Output will show pop-up screen in browser displaying counter value as 1 and in next call again a po<br> screen will appear but this time counter value is updated to 2 and so on.This process is continue<br> till the last call and every time counter value is increased by 1.
+</pre></p>
+
+
+<p class="ques">
+    <span class="red">Qn 2. 
+    <pre id="quePre">
+        let count = 0;
+        (function () {
+          if (count === 0) {
+            let count = 1;
+            console.log(count); // What is logged?
+          }
+          console.log(count); // What is logged?
+        })();
+    </pre></span>
+    <p class="ans">
+        <span class="green">Ans - </span>
+    <pre>Output will be :- <br>0 <br>1
+    </pre></p>
+
+
+<p class="ques">
+    <span class="red">Qn 3. 
+    <pre id="quePre">
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function log() {
+              console.log(i); // What is logged?
+            }, 1000);
+          }
+    </pre></span>
+    <p class="ans">
+        <span class="green">Ans - </span>
+    <pre>Output will be :-<br>3 <br>3 <br>3
+    </pre></p>
+
+
+<p class="ques">
+    <span class="red">Qn 4. 
+    <pre id="quePre">
+        function areaOfRectangle(length){
+            function breadthfunction(breadth){
+              return length*breadth;
+            }
+            console.log(breadthfunction(20));
+          }
+          areaOfRectangle(10);
+    </pre></span>
+    <p class="ans">
+        <span class="green">Ans - </span>
+    <pre>Output will be :-<br>200
+    </pre></p>
+
+<p class="ques">
+    <span class="red">Qn 5. Take a variable in outer function and create an inner functioincrease the counter every time it is called
+    <!-- <pre id="quePre">
+    </pre></span> -->
+    <p class="ans">
+        <span class="green">Ans - </span>
+    <pre>
+        function increaseNumber(){
+        let num=0;
+        function innerFunction(){
+          num=num+1;
+          return num;
+        }
+        return innerFunction;
+        }
+        var increaseNumber=increaseNumber();
+        console.log(increaseNumber());
+        console.log(increaseNumber());
+        console.log(increaseNumber());
+    </pre></p>
+
+
+<p class="ques">
+    <span class="red">Qn 6.
+    <pre id="quePre">
+     "Print 
+     var a = 12;
+     (function () {
+       alert(a);
+     })();"
+</pre></span>
+<p class="ans">
+    <span class="green">Ans - </span>
+<pre>
+    Output will show the pop on the browser display containing value of a variable.
+</pre>
+<p class="ques">
+    <span class="red">Qn 7.
+    <pre id="quePre">
+        "var a = 10;
+        var x = (function () {
+          var a = 12;
+          return function () {
+            alert(a);
+          };
+        })();
+        x();"
+    </pre></span></p>
+    <p class="ans">
+        <span class="green">Ans - </span>
+    <pre>
+        Output will show the pop on the browser display containing value of a variable.
+    </pre></p>
+
+
+                                
+<p class="ques">
+    <span class="red">Qn 8.
+    <pre id="quePre">
+        var globalVar = 
+        (function outerFunc(outerArg) {
+            var outerVar = 'a';
+            
+            (function innerFunc(innerArg) {
+            var innerVar = 'b';
+            
+            console.log(
+                "outerArg = " + outerArg + "\n" +
+                "innerArg = " + innerArg + "\n" +
+                "outerVar = " + outerVar + "\n" +
+                "innerVar = " + innerVar + "\n" +
+                "globalVar = " + globalVar);
+            
+            })(456);
+        })(123);
+    </pre></span>
+    <p class="ans">
+        <span class="green">Ans - </span>
+    <pre>
+outerArg = 123
+innerArg = 456
+outerVar = a
+innerVar = b
+globalVar = xyz                                </pre></p>
+ <script src="index.js"></script>       
+</body>
+</html>
